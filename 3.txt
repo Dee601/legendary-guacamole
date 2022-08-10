@@ -1,3 +1,7 @@
 hi all good morning
 new changes for amend comand 
-a=4
+<<<<<<< HEAD
+a=3
+=======
+a=3
+>>>>>>> feature2
