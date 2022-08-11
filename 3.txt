@@ -1,3 +1,2 @@
-hi all good morning
 new changes for amend comand 
-a=3
+
