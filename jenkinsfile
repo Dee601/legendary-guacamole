@@ -1,28 +1,17 @@
 pipeline {
-    agent {
-     node {
-              label 'built-in'
-            customWorkspace '/mnt/httpd_data'
-            }
- }
+    agent any
+    parameters {
+        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+
+       
+    }
     stages {
-        stage('httpd') { 
-          steps {
-            sh 'yum install httpd -y' 
-              }
-        }
-        stage('start') {
+        stage('Example') {
             steps {
-            sh'service httpd start'
+                echo "Hello ${params.PERSON}"
+
+                
             }
-        }
-        stage('create') {
-            steps {
-            sh 'touch index.html'
-			sh 'chmod 777 index.html'
-			sh "echo 'hello all' >> index.html" 
-			sh "cp -r index.html /var/www/html"
-          }  
         }
     }
 }
